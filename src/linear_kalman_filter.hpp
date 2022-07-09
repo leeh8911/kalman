@@ -25,8 +25,11 @@ class LinearKalmanFilter {
         Q = Eigen::MatrixXd(state_size_, state_size_);
     }
 
+
     size_t StateSize() const {return state_size_;}
     size_t MeasSize() const {return meas_size_;}
+
+    void MeasCov(const Eigen::MatrixXd &cov);
 };
 }  // namespace KF_LIB
 
