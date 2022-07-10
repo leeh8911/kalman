@@ -51,14 +51,28 @@ TEST_F(TestLinearKalmanFilter, CheckMeasSize) {
 }
 
 TEST_F(TestLinearKalmanFilter, SimpleCheckKalmanFilter) {
-    KF_LIB::LinearKalmanFilter<double, 2, 2> lkf;
-    
-    lkf.Meas(Eigen::Matrix<double, 2, 1>(10, 10));
+  KF_LIB::LinearKalmanFilter<double, 2, 2> lkf;
 
-    lkf.Transition();
-    lkf.Observation();
-    
-    auto state = lkf.State();
-    std::cout << state;
-    state.isNaN();
+  lkf.Meas(Eigen::Matrix<double, 2, 1>(10, 10));
+
+  Eigen::Matrix<double, 2, 2> F, H, Q, R, P;
+  F << 1, 1, 0, 1;
+  H << 1, 0, 0, 1;
+  P << 1, 0, 0, 1;
+  Q << 1, 0, 0, 1;
+  R << 1, 0, 0, 1;
+
+  lkf.StateCov(P);
+
+  lkf.TransitionMatrix(F);
+  lkf.ObservationMatrix(H);
+
+  lkf.TransitionCov(Q);
+  lkf.ObservationCov(R);
+
+  lkf.Transition();
+  lkf.Observation();
+
+  auto state = lkf.State();
+  std::cout << state << "\n";
 }

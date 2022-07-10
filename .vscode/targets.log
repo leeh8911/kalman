@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sun Jul 10 22:05:02 2022
+# Make data base, printed on Mon Jul 11 05:33:05 2022
 
 # Variables
 
@@ -48,7 +47,7 @@ SNAP_DATA = /var/snap/code/100
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:63375
+JOURNAL_STREAM = 8:60774
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -70,11 +69,7 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-_ = /snap/code/100/usr/share/code/code
-# environment
-MANAGERPID = 2903
-# environment
-LESSOPEN = | /usr/bin/lesspipe %s
+MANAGERPID = 2148
 # environment
 LC_NAME = ko_KR.UTF-8
 # environment
@@ -84,11 +79,11 @@ GSETTINGS_SCHEMA_DIR = /snap/code/100/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/leeh8911/.local/bin:/home/leeh8911/anaconda3/bin:/home/leeh8911/anaconda3/condabin:/home/leeh8911/anaconda3/condabin:/home/leeh8911/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/leeh8911/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/leeh8911-desktop:@/tmp/.ICE-unix/3130,unix/leeh8911-desktop:/tmp/.ICE-unix/3130
+SESSION_MANAGER = local/leeh8911-desktop:@/tmp/.ICE-unix/2373,unix/leeh8911-desktop:/tmp/.ICE-unix/2373
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -104,25 +99,21 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 4aef65ce036b429e8851b5959e301048
+INVOCATION_ID = 15b61525fbdb4ff58fb21ee23277579e
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/100/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-LS_COLORS = 
-# environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 6780
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2862
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :1
-# environment
-CONDA_EXE = /home/leeh8911/anaconda3/bin/conda
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
@@ -130,7 +121,7 @@ PWD = /home/leeh8911/projects/kalman_filter
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 3092
+SSH_AGENT_PID = 2337
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -139,9 +130,6 @@ GTK_MODULES = gail:atk-bridge
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/leeh8911
-# environment
-LESSCLOSE = /usr/bin/lesspipe %s %s
- 
 # environment
 VSCODE_CLI = 1
 # environment
@@ -189,7 +177,6 @@ USER = leeh8911
 # environment
 SNAP_REVISION = 100
 # environment
- 
 LC_MONETARY = ko_KR.UTF-8
 # makefile
 .DEFAULT_GOAL := all
@@ -199,8 +186,6 @@ XDG_CURRENT_DESKTOP = Unity
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 LC_TELEPHONE = ko_KR.UTF-8
-# environment
-CONDA_SHLVL = 0
 # default
 MAKE_COMMAND := make
 # default
@@ -236,14 +221,11 @@ LC_NUMERIC = ko_KR.UTF-8
 # automatic
 <F = $(notdir $<)
 # environment
- 
 LC_MEASUREMENT = ko_KR.UTF-8
 # environment
 SNAP_NAME = code
 # environment
 LC_ALL = C
-# environment
-CONDA_PYTHON_EXE = /home/leeh8911/anaconda3/bin/python
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
@@ -252,8 +234,6 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 SUFFIXES := 
 # environment
 SNAP_REEXEC = 
-# environment
-_CE_M = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -269,12 +249,9 @@ LC_ADDRESS = ko_KR.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 6825
-# environment
-_CE_CONDA = 
+VSCODE_PID = 2983
 # variable set hash-table stats:
- 
-# Load=129/1024=13%, Rehash=0, Collisions=22/157=14%
+# Load=120/1024=12%, Rehash=0, Collisions=21/148=14%
 
 # Pattern-specific Variable Values
 
@@ -305,12 +282,12 @@ all: format test build
 .PHONY: all format build test debug clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -343,7 +320,6 @@ format:
 	clang-format src/*.h* src/*.c* test/*.c* -i
 
 # Not a target:
- 
 Makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-07-10 22:04:58.517110329
@@ -382,7 +358,6 @@ build:
 	mkdir -p build
 	cd build && \
 	cmake .. && \
- 
 	make
 
 # Not a target:
@@ -412,8 +387,7 @@ clean:
 
 # strcache performance: lookups = 53 / hit rate = 64%
 # hash-table stats:
- 
 # Load=19/8192=0%, Rehash=0, Collisions=1/53=2%
-# Finished Make data base on Sun Jul 10 22:05:02 2022
+# Finished Make data base on Mon Jul 11 05:33:05 2022
 
  
