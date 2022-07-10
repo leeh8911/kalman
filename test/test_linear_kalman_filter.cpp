@@ -1,5 +1,9 @@
-#include <gtest/gtest.h>
+// Copyright 2022
 #include <src/linear_kalman_filter.hpp>
+
+#include <gtest/gtest.h>
+
+#include <iostream>
 
 class TestLinearKalmanFilter : public testing::Test {
 public:
@@ -38,10 +42,23 @@ TEST_F(TestLinearKalmanFilter, CheckMeasSize) {
   EXPECT_EQ(meas.cols(), 1);
 
   // If wrong size matrix input, then occurs build error.
-  // lkf.State(Eigen::Matrix<double, 3, 1>{});
+  // lkf.Meas(Eigen::Matrix<double, 3, 1>{});
 
   lkf.Meas(Eigen::Matrix<double, 2, 1>{10, 1});
   meas = lkf.Meas();
   EXPECT_DOUBLE_EQ(meas[0], 10);
   EXPECT_DOUBLE_EQ(meas[1], 1);
+}
+
+TEST_F(TestLinearKalmanFilter, SimpleCheckKalmanFilter) {
+    KF_LIB::LinearKalmanFilter<double, 2, 2> lkf;
+    
+    lkf.Meas(Eigen::Matrix<double, 2, 1>(10, 10));
+
+    lkf.Transition();
+    lkf.Observation();
+    
+    auto state = lkf.State();
+    std::cout << state;
+    state.isNaN();
 }
