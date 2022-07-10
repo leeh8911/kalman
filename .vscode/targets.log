@@ -1,14 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Sat Jul  9 23:13:09 2022
+# Make data base, printed on Sun Jul 10 22:05:02 2022
 
 # Variables
 
@@ -56,8 +55,8 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 SNAP_INSTANCE_NAME = code
 # environment
 SNAP_ARCH = amd64
-# makefile
-MAKEFILE_LIST := 
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
@@ -142,6 +141,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 HOME = /home/leeh8911
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
+ 
 # environment
 VSCODE_CLI = 1
 # environment
@@ -149,7 +149,7 @@ VSCODE_CODE_CACHE_PATH = /home/leeh8911/.config/Code/CachedData/92d25e35d9bf1a6b
 # environment
 LOGNAME = leeh8911
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -189,9 +189,10 @@ USER = leeh8911
 # environment
 SNAP_REVISION = 100
 # environment
+ 
 LC_MONETARY = ko_KR.UTF-8
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
@@ -235,11 +236,11 @@ LC_NUMERIC = ko_KR.UTF-8
 # automatic
 <F = $(notdir $<)
 # environment
+ 
 LC_MEASUREMENT = ko_KR.UTF-8
 # environment
 SNAP_NAME = code
 # environment
- 
 LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/leeh8911/anaconda3/bin/python
@@ -272,7 +273,8 @@ VSCODE_PID = 6825
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=129/1024=13%, Rehash=0, Collisions=22/151=15%
+ 
+# Load=129/1024=13%, Rehash=0, Collisions=22/157=14%
 
 # Pattern-specific Variable Values
 
@@ -280,9 +282,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 2068, inode 18227122): 9 files, no impossibilities.
+# . (device 2068, inode 18227122): 10 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -290,26 +292,98 @@ _CE_CONDA =
 
 # Files
 
-# Not a target:
-all:
+all: format test build
+#  Phony target (prerequisite of .PHONY).
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
 #  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+.PHONY: all format build test debug clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-Makefile:
-#  Implicit rule search has been done.
+.SUFFIXES:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+
+format:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
-#  Failed to be updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := format
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 6):
+	clang-format src/*.h* src/*.c* test/*.c* -i
 
 # Not a target:
-makefile:
+ 
+Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-10 22:04:58.517110329
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+
+debug:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 25):
+	mkdir -p build
+	cd build && \
+	cmake -DCMAKE_BUILD_TYPE=debug .. && \
+	make
+
+test:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 17):
+	mkdir -p build
+	cd build && \
+	cmake .. && \
+	make &&\
+	test/KALMAN_TEST
+
+build:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 10):
+	mkdir -p build
+	cd build && \
+	cmake .. && \
+ 
+	make
 
 # Not a target:
 .DEFAULT:
@@ -317,27 +391,29 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  Implicit rule search has been done.
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	rm -rf build
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=10/1024=1%, Rehash=0, Collisions=0/41=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 17 / storage = 144 B / avg = 8 B
-# current buf: size = 8162 B / used = 144 B / count = 17 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 149 B / avg = 7 B
+# current buf: size = 8162 B / used = 149 B / count = 19 / avg = 7 B
 
-# strcache performance: lookups = 20 / hit rate = 15%
+# strcache performance: lookups = 53 / hit rate = 64%
 # hash-table stats:
-# Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Sat Jul  9 23:13:09 2022
+ 
+# Load=19/8192=0%, Rehash=0, Collisions=1/53=2%
+# Finished Make data base on Sun Jul 10 22:05:02 2022
 
  

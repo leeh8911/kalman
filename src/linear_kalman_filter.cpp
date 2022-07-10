@@ -1,15 +1,10 @@
-// Liscence
+// Copyright 2022
 
-#include "linear_kalman_filter.hpp"
+#include "src/linear_kalman_filter.hpp"
+
+#include <Eigen/Dense>
 
 #include <cassert>
 #include <utility>
-#include <Eigen/Dense>
 
-namespace KF_LIB {
-
-    void LinearKalmanFilter::MeasCov(const Eigen::MatrixXd &cov) {
-        assert((cov.rows() == R.rows() ) && (cov.cols() == R.cols()));
-        R = std::move(cov);
-    }
-}  // namespace KF_LIB
+namespace KF_LIB {} // namespace KF_LIB
