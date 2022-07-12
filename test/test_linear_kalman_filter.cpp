@@ -95,7 +95,6 @@ TEST_F(TestLinearKalmanFilter, SimpleCheckKalmanFilterOneStep) {
     lkf.ObservationCov(R);
 
     lkf.Step(Eigen::Matrix<double, 2, 1>(10, 10));
-    
 
     auto state = lkf.State();
     std::cout << state << "\n";
