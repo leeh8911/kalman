@@ -50,8 +50,8 @@ class AnalyticFunction {
 
 template <typename T = double>
 class Sin : public AnalyticFunction<T> {
-    std::function<T(T)> f = (T(*)(T))&std::sin;
-    std::function<T(T)> derivative = (T(*)(T))&std::cos;
+    std::function<T(T)> f = (T(*)(T)) & std::sin;
+    std::function<T(T)> derivative = (T(*)(T)) & std::cos;
 };
 
 }  // namespace KF_LIB
