@@ -6,9 +6,9 @@ namespace MT {
 
 class IEstimator {
  public:
-    virtual ~IEstimator(){}
+    virtual ~IEstimator() {}
 };
 
-}
+}  // namespace MT
 
 #endif  // SRC_IESTIMATOR_HPP_

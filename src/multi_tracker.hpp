@@ -2,14 +2,12 @@
 #ifndef SRC_MULTI_TRACKER_HPP_
 #define SRC_MULTI_TRACKER_HPP_
 
-#include <vector>
-
 #include <Eigen/Dense>
+#include <vector>
 
 #include "IEstimator.hpp"
 
 namespace MT {
-
 
 class MultiTracker {
     using MEAS = Eigen::MatrixXd;
@@ -21,8 +19,10 @@ class MultiTracker {
     size_t state_size_;
 
     std::vector<size_t> Match();
+
  public:
-    MultiTracker(size_t state_size, size_t meas_size) : state_size_(state_size), meas_size_(meas_size) {}
+    MultiTracker(size_t state_size, size_t meas_size)
+        : state_size_(state_size), meas_size_(meas_size) {}
     void Update();
 };
 
