@@ -1,6 +1,6 @@
 // Copyright 2022
 
-#include "src/linear_kalman_filter.hpp"
+#include "src/simple_kalman/linear_kalman_filter.hpp"
 
 #include <Eigen/Dense>
 #include <cassert>

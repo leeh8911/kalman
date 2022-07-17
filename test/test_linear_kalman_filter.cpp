@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 
 #include <iostream>
-#include <src/linear_kalman_filter.hpp>
+#include "src/simple_kalman/linear_kalman_filter.hpp"
 
 class TestLinearKalmanFilter : public testing::Test {
  public:
