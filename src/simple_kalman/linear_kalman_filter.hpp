@@ -18,8 +18,11 @@ class LinearKalmanFilter {
     Eigen::MatrixXd P;
     Eigen::MatrixXd S;
 
-    Eigen::MatrixXd state;
-    Eigen::MatrixXd meas;
+    Eigen::MatrixXd Q;
+    Eigen::MatrixXd R;
+
+    Eigen::MatrixXd state_;
+    Eigen::MatrixXd meas_;
 
     Eigen::MatrixXd K;
 
@@ -33,6 +36,12 @@ class LinearKalmanFilter {
 
     void State(const Eigen::MatrixXd& m);
     void Meas(const Eigen::MatrixXd& m);
+
+    Eigen::MatrixXd State() const ;
+    Eigen::MatrixXd Meas() const ;
+
+    void Estimate();
+    void Estimate(const Eigen::MatrixXd& m);
 };
 
 }  // namespace KF_LIB

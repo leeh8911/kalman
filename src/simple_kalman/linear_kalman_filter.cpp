@@ -16,8 +16,11 @@ LinearKalmanFilter::LinearKalmanFilter(size_t state_size, size_t meas_size)
     P = Eigen::MatrixXd(state_size_, state_size_).setZero();
     S = Eigen::MatrixXd(meas_size, meas_size).setZero();
 
-    state = Eigen::MatrixXd(state_size_, 1).setZero();
-    meas = Eigen::MatrixXd(meas_size, 1).setZero();
+    Q = Eigen::MatrixXd(state_size_, state_size_).setZero();
+    R = Eigen::MatrixXd(meas_size, meas_size).setZero();
+
+    state_ = Eigen::MatrixXd(state_size_, 1).setZero();
+    meas_ = Eigen::MatrixXd(meas_size, 1).setZero();
 }
 
 void LinearKalmanFilter::PredictionModel(const Eigen::MatrixXd& m) { F = m; }
@@ -26,6 +29,26 @@ void LinearKalmanFilter::ObservationModel(const Eigen::MatrixXd& m) { H = m; }
 void LinearKalmanFilter::StateCov(const Eigen::MatrixXd& m) { P = m; }
 void LinearKalmanFilter::MeasCov(const Eigen::MatrixXd& m) { S = m; }
 
-void LinearKalmanFilter::State(const Eigen::MatrixXd& m) { state = m; }
-void LinearKalmanFilter::Meas(const Eigen::MatrixXd& m) { meas = m; }
+void LinearKalmanFilter::State(const Eigen::MatrixXd& m) { state_ = m; }
+void LinearKalmanFilter::Meas(const Eigen::MatrixXd& m) { meas_ = m; }
+
+Eigen::MatrixXd LinearKalmanFilter::State() const { return state_; }
+Eigen::MatrixXd LinearKalmanFilter::Meas() const { return meas_; }
+
+void LinearKalmanFilter::Estimate() {
+    state_ = F * state_;
+    P = F * P * F.transpose() + Q;
+
+    S = H * P * H.transpose() + R;
+    K = P * H.transpose() * S.inverse();
+
+    state_ = state_ + K * (meas_ - H * state_);
+    P = P - K * H * P;
+}
+void LinearKalmanFilter::Estimate(const Eigen::MatrixXd& m) {
+    Meas(m);
+
+    Estimate();
+}
+
 }  // namespace KF_LIB
