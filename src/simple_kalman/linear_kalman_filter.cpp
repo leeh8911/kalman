@@ -64,7 +64,6 @@ void LinearKalmanFilter::Estimate(const Eigen::MatrixXd& m) {
     Estimate();
 }
 
-
 std::ostream& LinearKalmanFilter::operator<<(std::ostream& os) {
     os << "Kalman Filter\n";
     os << "Transition Matrix\n" << F << "\n";
@@ -74,7 +73,7 @@ std::ostream& LinearKalmanFilter::operator<<(std::ostream& os) {
     os << "State Covar Matrix\n" << P << "\n";
     os << "Meas Covar Matrix\n" << S << "\n";
     os << "Kalman Gain\n" << K << "\n";
-    os << "State & Meas\n" << state_ << "\n" <<meas_ << "\n";
+    os << "State & Meas\n" << state_ << "\n" << meas_ << "\n";
     return os;
 }
 
