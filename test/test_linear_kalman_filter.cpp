@@ -21,13 +21,22 @@ TEST_F(TestLinearKalmanFilter, TestSample) {
     Eigen::MatrixXd Q = Eigen::MatrixXd::Identity(2, 2);
     Eigen::MatrixXd R = Eigen::MatrixXd::Identity(2, 2);
 
-    Eigen::MatrixXd meas(2, 1);
-    meas = {1, 2};
+    double arr[2] = {1, 2};
+    Eigen::MatrixXd state = Eigen::Map<Eigen::MatrixXd>(arr, 2, 1);
+    Eigen::MatrixXd meas = Eigen::Map<Eigen::MatrixXd>(arr, 2, 1);
 
     kf.ObservationModel(H);
     kf.PredictionModel(F);
 
-    std::cout << kf.State().transpose() << std::endl;
+    kf.StateCov(P);
+    kf.ObservationCov(R);
+    kf.PredictionCov(Q);
+
+    kf.Meas(meas);
+    kf.State(state);
+
     kf.Estimate();
-    std::cout << kf.State().transpose() << std::endl;
+
+    EXPECT_EQ(kf.State(), state);
+    EXPECT_EQ(kf.Meas(), meas);
 }

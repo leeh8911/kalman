@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/workspaces/kalman'
+make: Entering directory '/home/leeh8911/projects/kalman_filter'
 clang-format src/*/*.hpp src/*/*.cpp test/**.cpp -i
 mkdir -p build
 cd build && \
@@ -10,5 +10,5 @@ mkdir -p build
 cd build && \
 cmake .. && \
 make
-make: Leaving directory '/workspaces/kalman'
+make: Leaving directory '/home/leeh8911/projects/kalman_filter'
  

@@ -35,6 +35,12 @@ class LinearKalmanFilter {
     Eigen::MatrixXd PredictionModel() const;
     Eigen::MatrixXd ObservationModel() const;
 
+    void PredictionCov(const Eigen::MatrixXd& m);
+    void ObservationCov(const Eigen::MatrixXd& m);
+
+    Eigen::MatrixXd PredictionCov() const;
+    Eigen::MatrixXd ObservationCov() const;
+
     void StateCov(const Eigen::MatrixXd& m);
     void MeasCov(const Eigen::MatrixXd& m);
 
@@ -49,6 +55,9 @@ class LinearKalmanFilter {
 
     void Estimate();
     void Estimate(const Eigen::MatrixXd& m);
+
+    std::ostream& operator<<(std::ostream& os);
+    friend std::ostream& operator<<(std::ostream& os, LinearKalmanFilter& kf);
 };
 
 }  // namespace KF_LIB
