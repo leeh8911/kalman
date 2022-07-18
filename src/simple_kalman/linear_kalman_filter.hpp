@@ -28,17 +28,24 @@ class LinearKalmanFilter {
 
  public:
     LinearKalmanFilter(size_t state_size, size_t meas_size);
+
     void PredictionModel(const Eigen::MatrixXd& m);
     void ObservationModel(const Eigen::MatrixXd& m);
+
+    Eigen::MatrixXd PredictionModel() const;
+    Eigen::MatrixXd ObservationModel() const;
 
     void StateCov(const Eigen::MatrixXd& m);
     void MeasCov(const Eigen::MatrixXd& m);
 
+    Eigen::MatrixXd StateCov() const;
+    Eigen::MatrixXd MeasCov() const;
+
     void State(const Eigen::MatrixXd& m);
     void Meas(const Eigen::MatrixXd& m);
 
-    Eigen::MatrixXd State() const ;
-    Eigen::MatrixXd Meas() const ;
+    Eigen::MatrixXd State() const;
+    Eigen::MatrixXd Meas() const;
 
     void Estimate();
     void Estimate(const Eigen::MatrixXd& m);

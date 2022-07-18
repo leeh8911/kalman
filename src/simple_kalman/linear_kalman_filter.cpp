@@ -26,8 +26,14 @@ LinearKalmanFilter::LinearKalmanFilter(size_t state_size, size_t meas_size)
 void LinearKalmanFilter::PredictionModel(const Eigen::MatrixXd& m) { F = m; }
 void LinearKalmanFilter::ObservationModel(const Eigen::MatrixXd& m) { H = m; }
 
+Eigen::MatrixXd LinearKalmanFilter::PredictionModel() const { return F; }
+Eigen::MatrixXd LinearKalmanFilter::ObservationModel() const { return H; }
+
 void LinearKalmanFilter::StateCov(const Eigen::MatrixXd& m) { P = m; }
 void LinearKalmanFilter::MeasCov(const Eigen::MatrixXd& m) { S = m; }
+
+Eigen::MatrixXd LinearKalmanFilter::StateCov() const { return P; };
+Eigen::MatrixXd LinearKalmanFilter::MeasCov() const { return S; };
 
 void LinearKalmanFilter::State(const Eigen::MatrixXd& m) { state_ = m; }
 void LinearKalmanFilter::Meas(const Eigen::MatrixXd& m) { meas_ = m; }
