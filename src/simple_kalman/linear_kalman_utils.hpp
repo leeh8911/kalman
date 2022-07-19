@@ -16,6 +16,7 @@ extern "C" void SetState(KF_LIB::LinearKalmanFilter* p, Eigen::MatrixXd& state);
 extern "C" Eigen::MatrixXd GetState(KF_LIB::LinearKalmanFilter* p);
 extern "C" void SetMeas(KF_LIB::LinearKalmanFilter* p,
                         const Eigen::MatrixXd& meas);
-extern "C" void UpdateKalman(KF_LIB::LinearKalmanFilter* p)
+extern "C" void UpdateKalman(KF_LIB::LinearKalmanFilter* p);
 
+extern "C" Eigen::MatrixXd ConvertNumpyToEigen(const std::vector<double>& arr);
 #endif  // SRC_SIMPLE_KALMAN_LINEAR_KALMAN_UTILS_HPP_

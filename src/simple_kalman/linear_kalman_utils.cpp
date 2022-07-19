@@ -41,3 +41,13 @@ void UpdateKalman(KF_LIB::LinearKalmanFilter* p) { p->Estimate(); }
 void UpdateKalman(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& meas) {
     p->Estimate(meas);
 }
+
+Eigen::MatrixXd ConvertNumpyToEigen(const std::vector<double>& arr) {
+    Eigen::MatrixXd dst;
+
+    for (auto& elm : arr) {
+        std::cout << elm << " ";
+    }
+    std::cout << std::endl;
+    return dst;
+}
