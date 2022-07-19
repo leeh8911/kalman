@@ -25,3 +25,19 @@ void SetKalmanParams(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& F,
     p->ObservationModel(H);
     p->ObservationCov(R);
 }
+
+void SetState(KF_LIB::LinearKalmanFilter* p, Eigen::MatrixXd& state) {
+    p->State(state);
+}
+
+Eigen::MatrixXd GetState(KF_LIB::LinearKalmanFilter* p) { return p->State(); }
+
+void SetMeas(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& meas) {
+    p->Meas(meas);
+}
+
+void UpdateKalman(KF_LIB::LinearKalmanFilter* p) { p->Estimate(); }
+
+void UpdateKalman(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& meas) {
+    p->Estimate(meas);
+}

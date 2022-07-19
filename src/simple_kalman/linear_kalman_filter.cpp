@@ -10,15 +10,15 @@ namespace KF_LIB {
 
 LinearKalmanFilter::LinearKalmanFilter(size_t state_size, size_t meas_size)
     : state_size_(state_size), meas_size_(meas_size) {
-    F = Eigen::MatrixXd(state_size_, state_size_).setZero();
-    H = Eigen::MatrixXd(meas_size_, state_size_).setZero();
+    F = Eigen::MatrixXd(state_size_, state_size_).setIdentity();
+    H = Eigen::MatrixXd(meas_size_, state_size_).setIdentity();
 
-    P = Eigen::MatrixXd(state_size_, state_size_).setZero();
-    S = Eigen::MatrixXd(meas_size_, meas_size_).setZero();
+    P = Eigen::MatrixXd(state_size_, state_size_).setIdentity();
+    S = Eigen::MatrixXd(meas_size_, meas_size_).setIdentity();
     K = Eigen::MatrixXd(state_size_, meas_size_);
 
-    Q = Eigen::MatrixXd(state_size_, state_size_).setZero();
-    R = Eigen::MatrixXd(meas_size_, meas_size_).setZero();
+    Q = Eigen::MatrixXd(state_size_, state_size_).setIdentity();
+    R = Eigen::MatrixXd(meas_size_, meas_size_).setIdentity();
 
     state_ = Eigen::MatrixXd(state_size_, 1).setZero();
     meas_ = Eigen::MatrixXd(meas_size_, 1).setZero();
