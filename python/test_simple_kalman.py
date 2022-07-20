@@ -12,4 +12,5 @@ H = np.array([[1, 0], [0, 1]])
 Q = np.array([[1, 0], [0, 1]])
 R = np.array([[1, 0], [0, 1]])
 
-lib.ConvertNumpyToEigen(F)
+p = [1, 1, 0, 1]
+lib.ConvertNumpyToEigen(???, 4)

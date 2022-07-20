@@ -4,6 +4,7 @@
 
 #include <eigen3/unsupported/Eigen/CXX11/Tensor>
 #include <iostream>
+#include <vector>
 
 #include "src/simple_kalman/linear_kalman_filter.hpp"
 
@@ -26,7 +27,7 @@ void SetKalmanParams(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& F,
     p->ObservationCov(R);
 }
 
-void SetState(KF_LIB::LinearKalmanFilter* p, Eigen::MatrixXd& state) {
+void SetState(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& state) {
     p->State(state);
 }
 
@@ -42,10 +43,14 @@ void UpdateKalman(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& meas) {
     p->Estimate(meas);
 }
 
-Eigen::MatrixXd ConvertNumpyToEigen(const std::vector<double>& arr) {
+Eigen::MatrixXd ConvertNumpyToEigen(const double* arr, size_t sz) {
     Eigen::MatrixXd dst;
+    std::vector<double> src;
+    for (size_t i = 0; i < sz; i++) {
+        src.emplace_back(*(arr + i));
+    }
 
-    for (auto& elm : arr) {
+    for (auto& elm : src) {
         std::cout << elm << " ";
     }
     std::cout << std::endl;
