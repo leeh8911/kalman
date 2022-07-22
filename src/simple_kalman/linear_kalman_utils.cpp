@@ -53,5 +53,7 @@ void* ConvertNumpyToEigen(const double* arr, int row, int col) {
         }
     }
 
+    std::cout << *dst << std::endl;
+
     return static_cast<void*>(dst);
 }
