@@ -19,4 +19,5 @@ double_array = ctypes.c_double * 4
 arr = double_array(1, 1, 0, 1)
 ConvertNumpyToEigen.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
 ConvertNumpyToEigen.restype = ctypes.c_void_p
-print(ConvertNumpyToEigen(arr, 2, 2))
+
+lib.SetState(kf, ConvertNumpyToEigen(arr, 2, 2))

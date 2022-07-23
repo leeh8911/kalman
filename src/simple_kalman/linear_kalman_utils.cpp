@@ -27,7 +27,9 @@ void SetKalmanParams(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& F,
     p->ObservationCov(R);
 }
 
-void SetState(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& state) {
+void SetState(KF_LIB::LinearKalmanFilter* p, const double* arr, int row, int col) {
+    Eigen::MatrixXd* state = ConvertNumpyToEigen(arr, row, col);
+    std::cout << state << std::endl;
     p->State(state);
 }
 
@@ -43,7 +45,7 @@ void UpdateKalman(KF_LIB::LinearKalmanFilter* p, const Eigen::MatrixXd& meas) {
     p->Estimate(meas);
 }
 
-void* ConvertNumpyToEigen(const double* arr, int row, int col) {
+Eigen::MatrixXd* ConvertNumpyToEigen(const double* arr, int row, int col) {
     Eigen::MatrixXd* dst = new Eigen::MatrixXd;
     dst->setZero(row, col);
 
@@ -53,7 +55,5 @@ void* ConvertNumpyToEigen(const double* arr, int row, int col) {
         }
     }
 
-    std::cout << *dst << std::endl;
-
-    return static_cast<void*>(dst);
+    return dst;
 }
