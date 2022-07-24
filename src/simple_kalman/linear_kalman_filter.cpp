@@ -42,7 +42,10 @@ void LinearKalmanFilter::MeasCov(const Eigen::MatrixXd& m) { S = m; }
 Eigen::MatrixXd LinearKalmanFilter::StateCov() const { return P; };
 Eigen::MatrixXd LinearKalmanFilter::MeasCov() const { return S; };
 
-void LinearKalmanFilter::State(const Eigen::MatrixXd& m) { state_ = m; }
+void LinearKalmanFilter::State(const Eigen::MatrixXd& m) {
+    state_ = Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>>(
+        m, m.rows(), m.cols());
+}
 void LinearKalmanFilter::Meas(const Eigen::MatrixXd& m) { meas_ = m; }
 
 Eigen::MatrixXd LinearKalmanFilter::State() const { return state_; }

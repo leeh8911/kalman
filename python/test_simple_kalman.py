@@ -14,10 +14,10 @@ R = np.array([[1, 0], [0, 1]])
 
 p = [1, 1, 0, 1]
 
-ConvertNumpyToEigen = lib.ConvertNumpyToEigen
+ConvertArrayToEigen = lib.ConvertArrayToEigen
 double_array = ctypes.c_double * 4
 arr = double_array(1, 1, 0, 1)
-ConvertNumpyToEigen.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
-ConvertNumpyToEigen.restype = ctypes.c_void_p
+ConvertArrayToEigen.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
+ConvertArrayToEigen.restype = ctypes.c_void_p
 
-lib.SetState(kf, ConvertNumpyToEigen(arr, 2, 2))
+lib.SetState(kf, arr, 2, 2)
