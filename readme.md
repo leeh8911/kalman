@@ -13,7 +13,7 @@ MultTracker "1" *-- "0..n" IEstimator : composition
 
 class MultTracker {
     - IEstimator[] targets
-    - vector meas;
+    - vector meas; 
     - Match()
     + Update()
     + SetMeasures(meas)
