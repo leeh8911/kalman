@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 24 08:49:32 2022
+# Make data base, printed on Tue Jul 26 05:36:41 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ SNAP_DATA = /var/snap/code/102
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:63756
+JOURNAL_STREAM = 8:62626
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/102/usr/share/code/code
 # environment
-MANAGERPID = 1927
+MANAGERPID = 1955
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -87,7 +87,7 @@ PATH = /home/leeh8911/.local/bin:/home/leeh8911/anaconda3/bin:/home/leeh8911/ana
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/leeh8911-desktop:@/tmp/.ICE-unix/2147,unix/leeh8911-desktop:/tmp/.ICE-unix/2147
+SESSION_MANAGER = local/leeh8911-desktop:@/tmp/.ICE-unix/2174,unix/leeh8911-desktop:/tmp/.ICE-unix/2174
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -103,7 +103,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = b02b6234a7d743c292991982083b61ad
+INVOCATION_ID = c4933980e786446280a4303c2350da33
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -115,7 +115,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5660
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4268
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +129,7 @@ PWD = /home/leeh8911/projects/kalman_filter
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2114
+SSH_AGENT_PID = 2140
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -147,7 +147,7 @@ VSCODE_CODE_CACHE_PATH = /home/leeh8911/.config/Code/CachedData/3b889b090b5ad579
 # environment
 LOGNAME = leeh8911
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -265,7 +265,7 @@ LC_ADDRESS = ko_KR.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5730
+VSCODE_PID = 4314
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -284,8 +284,8 @@ _CE_CONDA =
 # Implicit Rules
 
 # No implicit rules.
- 
 
+ 
 # Files
 
 all: format test build
@@ -335,12 +335,12 @@ format:
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 6):
-	clang-format src/*/*.hpp src/*/*.cpp test/**.cpp -i
+	clang-format src/*/*.hpp src/*/*.cpp src/*.hpp src/*.cpp test/**.cpp -i
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:31:17.85230484
+#  Last modified 2022-07-26 05:36:30.373682235
 #  File has been updated.
 #  Successfully updated.
 
@@ -406,6 +406,6 @@ clean:
 # strcache performance: lookups = 56 / hit rate = 60%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/56=2%
-# Finished Make data base on Sun Jul 24 08:49:32 2022
+# Finished Make data base on Tue Jul 26 05:36:41 2022
 
  

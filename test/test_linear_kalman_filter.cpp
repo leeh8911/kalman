@@ -3,9 +3,7 @@
 
 #include <iostream>
 
-#include "src/simple_kalman/linear_kalman_filter.hpp"
-
-template class KF_LIB::Gauss<double, 3>;
+#include "src/random_variable.hpp"
 
 class TestLinearKalmanFilter : public testing::Test {
  public:
@@ -14,7 +12,9 @@ class TestLinearKalmanFilter : public testing::Test {
 };
 
 TEST_F(TestLinearKalmanFilter, TestSample) {
-    KF_LIB::Gauss<double, 2> g;
+    KF_LIB::RandomVariable rv(2);
 
-    std::cout << g.Mean() << std::endl;
+    Eigen::MatrixXd mean_ = Eigen::Map<Eigen::MatrixXd>({0, 0});
+    EXPECT_EQ(rv.Size(), 2);
+    EXPECT_EQ(*(rv.Mean()), mean_);
 }

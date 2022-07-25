@@ -1,6 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/leeh8911/projects/kalman_filter'
-clang-format src/*/*.hpp src/*/*.cpp test/**.cpp -i
+clang-format src/*/*.hpp src/*/*.cpp src/*.hpp src/*.cpp test/**.cpp -i
 mkdir -p build
 cd build && \
 cmake .. && \
